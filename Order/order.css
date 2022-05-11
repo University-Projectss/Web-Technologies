@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    background-image: url('./order.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo {
+    font-family: monospace;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    animation: begin-logo 1s;
+}
+
+a, a:visited {
+    color: white;
+    text-decoration: none;
+
+}
+
+nav a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    animation: links 0.5s;
+}
+
+nav {
+    position: absolute;
+    right: 0;
+    top: 5vh;
+    background-color: rgba(245, 245, 220, 0.3);
+    height: 10vh;
+    width: 40vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    animation: navbar 1s;
+    border-radius: 10px;
+}
+
+.backdrop {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: black;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.menu {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 25px;
+    right: 5vw;
+    display: none;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.menu div {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.change .div1 {
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+  
+.change .div2 {opacity: 0;}
+  
+.change .div3 {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.menu-links {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60vh;
+    width: 60vw;
+    background-color: rgba(26, 26, 26, 1);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    transition: 0.5s;
+    transform: translateY(-100vh);
+}
+
+.show {
+    display: flex;
+    transform: translateY(0);
+    transition: 0.5s;
+}
+
+.menu-links a {
+    margin: 20px;
+}
+
+.menu-links a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    animation: links 0.5s;
+}
+
+
+.prices {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    font-family: 'Courier New', Courier, monospace;
+    animation: prices 1s linear;
+}
+
+.left, .right {
+    background-color: #8ECAE6;
+    height: 60vh;
+    width: 33%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.left:hover .price {
+    font-size: 65px;
+}
+
+.right:hover .price {
+    font-size: 65px;
+}
+
+.center {
+    cursor: pointer;
+    background-color: #219EBC;
+    height: 65vh;
+    width: 33%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: 0.5s;
+}
+
+.center:hover .price {
+    font-size: 70px;
+}
+
+.info {
+    height: 50%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+li {
+    margin: 20px;
+    font-size: 25px;
+}
+
+.price {
+    font-size: 60px;
+    font-weight: 100;
+    transition: 0.5s;
+}
+
+.loginModal {
+    padding: 10px;
+    background-color: #219EBC;
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 300px;
+}
+
+.loginModal input {
+    height: 20%;
+    width: 50vw;
+    font-size: large;
+    border: none;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.loginModal button {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.logoutButton {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.formular {
+    position: absolute;
+    padding: 20px;
+    width: 70vw;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formular div {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.submit {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+@keyframes prices {
+    0% {
+        transform: translateY(100vh);
+    }
+
+    60% {
+        transform: translateY(-10vh);
+    }
+
+    80% {
+        transform: translateY(10vh);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes begin-logo {
+    from {
+        top: -50px;
+    } to {
+        top: 20px;
+    }
+}
+
+@keyframes navbar {
+    from{
+        transform: translate(500px);
+    }to {
+        transform: translate(0);
+    }
+}
+
+
+@keyframes links {
+    33% {
+        transform: translate(10px);
+    }
+
+    66% {
+        transform: translate(-10px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .prices {
+        flex-direction: column;
+    }
+
+    .left, .center, .right {
+        width: 50vw;
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .left, .center, .right {
+        width: 80vw;
+    }
+
+    .loginModal input {
+        width: 80vw;
+    }
+
+    .formular {
+        width: 90vw;
+    }
+}

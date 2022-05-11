@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top">
+        <p class="logo">Starman</p>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="./Gallery/gallery.html">Gallery</a>
+            <a href="./Contact/contact.html">Contact</a>
+            <a href="./Order/order.html">Order</a>
+        </nav>
+
+        <div class="title">
+            <h4>So, you want to go to</h4>
+            <h1 id="randomColor">SPACE</h1>
+            <p>Scroll down for more details.</p>
+        </div>
+    </div>
+
+    <div class="why-us">
+        <div class="backdrop"></div>
+        <h1>Why would you choose Starman?</h1>
+
+        <div class="pros">
+            <div>
+                <h2>Safety</h2>
+                <p>We use the best starhips available on the market.</p>
+            </div>
+            <div>
+                <h2>Price</h2>
+                <p>We have a fair price and we're trying to keep as low as posible.</p>
+            </div>
+            <div>
+                <h2>Why not?</h2>
+                <p>Let's be honest: how many chances do you have to go to space again?</p>
+            </div>
+        </div>
+
+        
+        <img src="./rocket.png" alt="rocket" height="50" class="rocket">
+
+    </div>
+
+    <div class="numbers"></div>
+
+    <footer>
+        <h2>Starman Incorporate</h2>
+        <p>@Copyright 2022</p>
+    </footer>
+
+    <div class="menu" onclick="myFunction(this), showMenu()">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+    </div>
+
+    <div class="menu-links">
+        <a href="#">Home</a>
+        <a href="./Gallery/gallery.html">Gallery</a>
+        <a href="./Contact/contact.html">Contact</a>
+        <a href="./Order/order.html">Order</a>
+    </div>
+
+    <script>
+        function showMenu() {
+            document.querySelector('.menu-links').classList.toggle('show');
+        }
+
+        function myFunction(x) {
+            x.classList.toggle("change");
+        }
+    </script>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

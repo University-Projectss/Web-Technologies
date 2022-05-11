@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: serif;
+}
+
+.top {
+    height: 100vh;
+    background-image: url(./background-home-desktop.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.logo {
+    font-family: monospace;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    animation: begin-logo 1s;
+}
+
+nav {
+    position: absolute;
+    right: 0;
+    top: 5vh;
+    background-color: rgba(245, 245, 220, 0.3);
+    height: 10vh;
+    width: 40vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    animation: navbar 1s;
+    border-radius: 10px;
+}
+
+a, a:visited {
+    color: white;
+    text-decoration: none;
+
+}
+
+nav a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    animation: links 0.5s;
+}
+
+nav p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    animation: links 0.5s;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    margin: 10vw;
+    font-size: 60px;
+    animation: titleanim 1s;
+}
+
+.why-us {
+    position: relative;
+    background-image: url(./background2.jpeg);
+    background-color: rgba(0, 0, 0, 0.3);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.backdrop {
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    background-color: black;
+    opacity: 0.4;
+}
+
+.why-us h1 {
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+    font-size: 60px;
+}
+
+.pros {
+    z-index: 3;
+    width: 80vw;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.pros div {
+    border: 3px solid white;
+    background-color: rgba(245, 245, 220, 0.3);
+    border-radius: 20px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    overflow: scroll;
+    font-size: larger;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s;
+    margin: 15px;
+}
+
+.pros div:hover {
+    height: 220px;
+    width: 220px;
+}
+.pros div:hover h2{
+    display: none;
+}
+.pros div:hover p{
+    display: block;
+}
+
+.pros p {
+    display: none;
+}
+
+
+footer {
+    height: 15vh;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 25px;
+    right: 5vw;
+    display: none;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.menu div {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.change .div1 {
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+  
+.change .div2 {opacity: 0;}
+  
+.change .div3 {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.menu-links {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60vh;
+    width: 60vw;
+    background-color: rgba(26, 26, 26, 1);
+    border-radius: 10px 0 0 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    transition: 0.5s;
+    transform: translateY(-100vh);
+}
+
+.show {
+    display: flex;
+    transform: translateY(0);
+    transition: 0.5s;
+}
+
+.menu-links a {
+    margin: 20px;
+}
+
+.menu-links a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    animation: links 0.5s;
+}
+
+.menu-links p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    animation: links 0.5s;
+}
+
+
+.rocket {
+    position: absolute;
+    animation: rocket 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: rotate(45deg);
+    
+}
+
+.numbers {
+    width: 100%;
+    height: 50vh;
+    background-image: url('./bg.jpg');
+}
+
+.bump {
+    animation: bump 300ms ease-out;
+}
+  
+@keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+@keyframes rocket {
+    0% {
+        transform: translateX(-50vw) translateY(50vh) rotate(40deg);
+    }
+
+    33% {
+        transform: translateX(-25vw) translateY(-25vh) rotate(40deg);
+    }
+
+    34% {
+        transform: translateX(-25vw) translateY(-25vh) rotate(120deg);
+    }
+
+    66% {
+        transform: translateX(25vw) translateY(25vh) rotate(120deg);
+    }
+
+    67% {
+        transform: translateX(25vw) translateY(25vh) rotate(40deg);
+    }
+
+    100% {
+        transform: translateX(50vw) translateY(-50vh) rotate(40deg);
+    }
+}
+
+@keyframes rocket-mini {
+    0% {
+        transform: translateX(-50vw) translateY(50vh) rotate(40deg);
+    }
+
+    100% {
+        transform: translateX(50vw) translateY(-50vh) rotate(40deg);
+    }
+}
+
+@keyframes begin-logo {
+    from {
+        top: -50px;
+    } to {
+        top: 20px;
+    }
+}
+
+@keyframes links {
+    33% {
+        transform: translate(10px);
+    }
+
+    66% {
+        transform: translate(-10px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes navbar {
+    from{
+        transform: translate(500px);
+    }to {
+        transform: translate(0);
+    }
+}
+
+@keyframes titleanim {
+    from {
+        transform: translate(-500px);
+    }to {
+        transform: translate(0);
+    }
+}
+
+
+
+/* Stilul pentru tableta */
+
+@media screen and (max-width: 768px) {
+    .top {
+        align-items: center;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .why-us h1 {
+        font-size: 40px;
+    }
+
+    .pros {
+        margin-top: 100px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .rocket {
+        animation: rocket-mini 15s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+}
+
+
+
+/* Stilul pentru telefon */
+
+@media screen and (max-width: 600px) {
+    .pros {
+        flex-direction: column;
+        margin-top: 200px;
+        height: 700px;
+    }
+}

@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: serif;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url('./background-gallery.jpeg');
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+    position: relative;
+}
+
+.logo {
+    font-family: monospace;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    animation: begin-logo 1s;
+}
+
+a, a:visited {
+    color: white;
+    text-decoration: none;
+
+}
+
+nav a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    animation: links 0.5s;
+}
+
+.backdrop {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: black;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+nav {
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    top: 5vh;
+    background-color: rgba(245, 245, 220, 0.3);
+    height: 10vh;
+    width: 40vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    animation: navbar 1s;
+}
+
+.grid-gallery {
+    position: absolute;
+    margin-top: 17vh;
+    min-height: 80vh;
+    width: 95vw;
+    margin-left: 2.5vw;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 
+    'image1 image2 image8 image4'
+    'image1 image2 image8 image4'
+    'image1 image7 image8 image3'
+    'image5 image7 image6 image3'
+    'image5 image7 image6 image3'
+    ;
+}
+
+.grid-gallery div {
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.5s;    
+}
+
+/* .grid-gallery div:hover {
+    height: 105%;
+    width: 105%;
+} */
+
+.image1, .image2, .image3, .image4, .image5,
+.image6, .image7, .image8 {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.image1 {
+    background-image: url('./images/image1.jpeg');
+    grid-area: image1;
+}
+
+.image2 {
+    background-image: url('./images/image2.jpeg');
+    grid-area: image2;
+}
+
+.image3 {
+    background-image: url('./images/image3.jpeg');
+    grid-area: image3;
+}
+
+.image4 {
+    background-image: url('./images/image4.jpeg');
+    grid-area: image4;
+}
+
+.image5 {
+    background-image: url('./images/image5.jpeg');
+    grid-area: image5;
+}
+
+.image6 {
+    background-image: url('./images/image6.jpeg');
+    grid-area: image6;
+}
+
+.image7 {
+    background-image: url('./images/image7.jpeg');
+    grid-area: image7;
+}
+
+.image8 {
+    background-image: url('./images/image8.jpeg');
+    grid-area: image8;
+}
+
+
+.menu {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 25px;
+    right: 5vw;
+    display: none;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.menu div {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.change .div1 {
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+  
+.change .div2 {opacity: 0;}
+  
+.change .div3 {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.menu-links {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60vh;
+    width: 60vw;
+    background-color: rgba(26, 26, 26, 1);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    transition: 0.5s;
+    transform: translateY(-100vh);
+}
+
+.show {
+    display: flex;
+    transform: translateY(0);
+    transition: 0.5s;
+}
+
+.menu-links a {
+    margin: 20px;
+}
+
+.menu-links a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    animation: links 0.5s;
+}
+
+
+@keyframes begin-logo {
+    from {
+        top: -50px;
+    } to {
+        top: 20px;
+    }
+}
+
+@keyframes navbar {
+    from{
+        transform: translate(500px);
+    }to {
+        transform: translate(0);
+    }
+}
+
+
+@keyframes links {
+    33% {
+        transform: translate(10px);
+    }
+
+    66% {
+        transform: translate(-10px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .backdrop {
+        height: 170vh;
+    }
+
+    .grid-gallery {
+        height: 150vh;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-areas: 
+        'image1 image2 image8'
+        'image1 image2 image8'
+        'image1 image7 image8'
+        'image5 image7 image4'
+        'image5 image7 image4'
+        'image6 image6 image3'
+        'image6 image6 image3';
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .backdrop {
+        height: 320vh;
+    }
+
+    .grid-gallery {
+        height: 300vh;
+        width: 80vw;
+        margin-left: 10vw;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 1fr);
+        grid-template-areas: 
+        'image1'
+        'image1'
+        'image5'
+        'image7'
+        'image7'
+        'image2'
+        'image8'
+        'image8'
+        'image6'
+        'image3'
+        'image3'
+        'image4'
+        ;
+    }
+}

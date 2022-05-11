@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="stylesheet" href="order.css">
+    <link rel="shortcut icon" href="../favicon.jpeg" type="image/x-icon">
+</head>
+<body>
+    <p class="logo">Order</p>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../Gallery/gallery.html">Gallery</a>
+        <a href="../Contact/contact.html">Contact</a>
+        <a href="#">Order</a>
+    </nav>
+
+
+    <div class="prices">
+        <div class="left">
+            <h1>Basic</h1>
+            <h1 class="price">$100K</h1>
+            <div class="info">
+                <ul>
+                    <li>2 hours</li>
+                    <li>10 ppl rocket</li>
+                    <li>Blue Origin Ship</li>
+                </ul>
+            </div>
+        </div>
+        <div class="center">
+            <h1>Luxury</h1>
+            <h1 class="price">$200K</h1>
+            <div class="info">
+                <ul>
+                    <li>12 hours</li>
+                    <li>5 ppl rocket</li>
+                    <li>SpaceX Ship</li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <h1>Professional</h1>
+            <h1 class="price">$150K</h1>
+            <div class="info">
+                <ul>
+                    <li>5 hours</li>
+                    <li>10 ppl rocket</li>
+                    <li>Virgin Galactic Ship</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="loginModal">
+        <input type="email" name="email" id="email" placeholder="Email">
+        <input type="password" name="password" id="password" placeholder="Password">
+        <button class="loginButton">Login</button>
+    </div>
+
+    <button class="logoutButton">Logout</button>
+
+
+    <div class="backdrop"></div>
+
+    <div class="menu" onclick="myFunction(this), showMenu()">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+    </div>
+
+    <div class="menu-links">
+        <a href="../index.html">Home</a>
+        <a href="../Gallery/gallery.html">Gallery</a>
+        <a href="../Contact/contact.html">Contact</a>
+        <a href="#">Order</a>
+    </div>
+
+    <form class="formular">
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name" placeholder="Elon Musk">
+        </div>
+        <div>
+            <label for="range">How excited are you? </label>
+            <input type="range" name="range" id="range">
+        </div>
+        <div>
+            <label for="number">Age: </label>
+            <input type="number" name="number" id="number" min="18" value="18">
+        </div>
+        <div>
+            <input type="radio" name="radio" id="radio">
+            <label for="radio">First fly?</label>
+        </div>
+        <div>
+            <label for="select">Select ticket type: </label>
+            <select name="select" id="select">
+                <option value="basic">Basic</option>
+                <option value="professional">Professional</option>
+                <option value="luxury">Luxury</option>
+            </select>
+        </div>
+        <button class="submit" type="submit">Submit</button>
+    </form>
+
+    <script>
+        function showMenu() {
+            document.querySelector('.menu-links').classList.toggle('show');
+        }
+
+        function myFunction(x) {
+            x.classList.toggle("change");
+        }
+    </script>
+
+    <script src="order.js"></script>
+</body>
+</html>
