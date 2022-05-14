@@ -2,19 +2,26 @@ const prices = document.querySelector('.prices');
 const loginModal = document.querySelector('.loginModal');
 const loginButton = document.querySelector('.loginButton');
 const logoutButton = document.querySelector('.logoutButton');
+const cartIcon = document.querySelector('.cart');
 
 const [email, pass] = document.getElementsByTagName('input');
+
+if(localStorage.idTicket === undefined) {
+    localStorage.idTicket = 1;
+}
 
 if( localStorage.isLoggedIn === undefined ) {
     localStorage.isLoggedIn = 'false';
 }
 
 if( localStorage.isLoggedIn === 'false' ) {
+    cartIcon.style.display = 'none';
     prices.style.display = 'none';
     loginModal.style.display = 'flex';
     logoutButton.style.display = 'none';
 } else {
     prices.style.display = 'flex';
+    cartIcon.style.display = 'block';
 }
 
 const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -41,26 +48,12 @@ loginButton.addEventListener('click', () => {
         prices.style.display = 'flex';
         loginModal.style.display = 'none';
         logoutButton.style.display = 'block';
+        cartIcon.style.display = 'block';
     }
-    // else if( localStorage.email === "" && localStorage.pass === "" ) {
-    //     localStorage.isLoggedIn = 'true';
-    //     prices.style.display = 'flex';
-    //     loginModal.style.display = 'none';
-    //     logoutButton.style.display = 'block';
-
-    //     localStorage.email = email.value;
-    //     localStorage.pass = pass.value;
-    // } else if( localStorage.email === email.value && localStorage.pass === pass.value ) {
-    //     localStorage.isLoggedIn = 'true';
-    //     prices.style.display = 'flex';
-    //     loginModal.style.display = 'none';
-    //     logoutButton.style.display = 'block';
-    // } else {
-    //     alert('Invalid input');
-    // }
 });
 
 logoutButton.addEventListener('click', () => {
+    cartIcon.style.display = 'none';
     localStorage.isLoggedIn = 'false';
     prices.style.display = 'none';
     loginModal.style.display = 'flex';
@@ -84,4 +77,38 @@ prices.addEventListener('click', () => {
 submitButton.addEventListener('click', (e) => {
     formular.style.display = 'none';
     prices.style.display = 'flex';
+
+    let data = {
+        id: localStorage.idTicket,
+        name: formular.elements['name'].value,
+        happy: formular.elements['range'].value,
+        age: formular.elements['number'].value,
+        firstFly: formular.elements['radio'].value,
+        type: formular.elements['select'].value
+    }
+
+    localStorage.idTicket = +localStorage.idTicket + 1;
+
+    fetch('http://localhost:3000/chart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+        })
+        .then()
+
+    formular.submit();
+});
+
+cartIcon.addEventListener('click', () => {
+    window.location.href = "http://localhost:3000/chart";
+    fetch('http://localhost:3000/chart', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }})
+        .then()
 });

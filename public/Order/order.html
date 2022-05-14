@@ -79,7 +79,7 @@
         <a href="#">Order</a>
     </div>
 
-    <form class="formular">
+    <form class="formular" action="/chart" method="GET">
         <div>
             <label for="name">Name: </label>
             <input type="text" name="name" id="name" placeholder="Elon Musk">
@@ -93,7 +93,7 @@
             <input type="number" name="number" id="number" min="18" value="18">
         </div>
         <div>
-            <input type="radio" name="radio" id="radio">
+            <input type="radio" name="radio" id="radio" value="off">
             <label for="radio">First fly?</label>
         </div>
         <div>
@@ -106,6 +106,8 @@
         </div>
         <button class="submit" type="submit">Submit</button>
     </form>
+
+    <img class="cart" src="./cart.png" alt="cart">
 
     <script>
         function showMenu() {

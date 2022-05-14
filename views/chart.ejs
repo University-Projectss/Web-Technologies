@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tickets</title>
+</head>
+
+<style>
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    text-align: center;
+}
+
+.allTickets {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: 80vh;
+}
+
+.ticket {
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    list-style-type: none;
+    width: auto;
+}
+
+li {
+    margin: 10px;
+}
+
+.delete {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+p {
+    display: none;
+}
+
+.updateInputs {
+    margin: 5px;
+}
+</style>
+
+<body>
+    <h1>Hello chart!</h1>
+    <p class="nr">0</p>
+
+    <div class="allTickets">
+        <%  obj.forEach( (ticket) => { %>
+            <ul class="ticket">
+                <h2>Id: <span> <%= ticket.id %> </span> </h2>
+                <li>Name: <%= ticket.name %> </li>
+                <li>Happiness: <%= ticket.happy %> </li>
+                <li>Age: <%= ticket.age %> </li>
+                <li>Ticket Type: <%= ticket.type %> </li>
+                <li>First Fly: <%= ticket.firstFly === 'off' ? 'No' : 'Yes' %> </li>
+                <li class="delete" onclick=" getRidOfIt( 
+                    <%- ticket.id %>
+                 )">Delete</li> 
+            </ul>
+        <% } ); %>
+    </div>
+
+    <div class="update">
+        <h1>Update Ticket</h1>
+        <form class="updateInputs">
+            <input type="number" name="newId" id="nweId" placeholder="Ticket id">
+            <select name="type" id="type">
+                <option value="basic">Basic</option>
+                <option value="professional">Professional</option>
+                <option value="luxury">Luxury</option>
+            </select>
+        </form>
+        <button onclick="updateTicket()">Update</button>
+    </div>
+ 
+<script>
+    function getRidOfIt(theId) {
+        // console.log(theId);
+        fetch('http://localhost:3000/chart',{
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({id: Number(theId)}  )
+        })
+        .then(res => {
+            alert("Ticket deleted!");
+        })
+        .catch(err => {
+            window.location.reload()
+        })
+    }
+    
+    function updateTicket() {
+        const formular = document.querySelector('.updateInputs');
+        const updateData = {
+            id: formular.elements['newId'].value,
+            type: formular.elements['type'].value
+        }
+
+        formular.elements['newId'].value = "";
+        formular.elements['type'].value = "";
+
+        fetch('http://localhost:3000/chart',{
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(updateData)
+        })
+        .then()
+        .catch(err => {
+            window.location.reload()
+        })
+    }
+</script>
+</body>
+</html>

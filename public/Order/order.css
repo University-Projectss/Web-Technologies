@@ -267,6 +267,13 @@ li {
     cursor: pointer;
 }
 
+.cart {
+    position: absolute;
+    bottom: 5px;
+    height: 50px;
+    cursor: pointer;
+}
+
 @keyframes prices {
     0% {
         transform: translateY(100vh);
