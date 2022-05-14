@@ -10,4 +10,4 @@ Dupa ce au fost instalate cele necesare folsind npm, pornim serverul:
 
 >nodemon server.js
 
-Acum serverul ruleaza la >http://localhost:3000
+Acum serverul ruleaza la http://localhost:3000
